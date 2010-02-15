@@ -14,8 +14,8 @@ Usage
 
 Usage without doing something:
 
-  require "sinatra"
-  require "sinatra/compass"
+    require "sinatra"
+    require "sinatra/compass"
 
 If you create a directory called views/stylesheets and place your
 sass files in there, there you go. Just call stylesheet(name) form
@@ -25,20 +25,20 @@ stylesheets will be /stylesheets/:name.css.
 Of course you can use any other setup. Say, you want to store your
 stylesheets in views/css and want the URL to be /css/:name.css:
 
-  get_compass("css")
+    get_compass("css")
 
 But what about more complex setups?
 
-  require "sinatra/base"
-  require "sinatra/compass"
+    require "sinatra/base"
+    require "sinatra/compass"
 
-  class Foo < Sinatra::Base
-    register Sinatra::Compass
-    set :compass, :sass_dir => "/foo/bar/blah"
-    get_compass("/foo/:name.css") do
-      compass :one_stylesheet
+    class Foo < Sinatra::Base
+      register Sinatra::Compass
+      set :compass, :sass_dir => "/foo/bar/blah"
+      get_compass("/foo/:name.css") do
+        compass :one_stylesheet
+      end
     end
-  end
 
 Note that already generated routes will be deactivated by calling
 get_compass again.
