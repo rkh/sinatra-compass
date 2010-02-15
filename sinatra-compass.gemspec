@@ -1,7 +1,7 @@
 SPEC = Gem::Specification.new do |s|
 
   # Get the facts.
-  s.name             = "sinatra-advanced-routes"
+  s.name             = "sinatra-compass"
   s.version          = "0.4.0.a"
   s.description      = "Better Compass integration for Sinatra (part of BigBand)."
 
