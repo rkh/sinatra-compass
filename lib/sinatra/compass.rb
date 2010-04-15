@@ -7,13 +7,15 @@ module Sinatra
   module Compass
 
     module ClassMethods
-      attr_reader :compass_route
+      attr_reader :compass_route, :compass_prefix
       def get_compass(path, &block)
+        path.sub! /^\//, ''
         block ||= Proc.new do |file|
           content_type 'text/css', :charset => 'utf-8'
           compass :"#{path}/#{params[:name]}"
         end
         set :compass, :sass_dir => views / path unless compass[:sass_dir] && compass[:sass_dir].directory?
+        @compass_prefix = "/#{path}"
         @compass_route.deactivate if @compass_route
         @compass_route = get("/#{path}" / ":name.css", &block)
       end
@@ -24,8 +26,9 @@ module Sinatra
         options.merge! ::Compass.sass_engine_options
         sass file, options
       end
-      def stylesheet(*args)
-        raise NotImplementedError, "yet to be implemented"
+
+      def stylesheet(name)
+        settings.compass_prefix / name
       end
     end
 
