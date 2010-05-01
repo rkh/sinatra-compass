@@ -28,7 +28,7 @@ module Sinatra
       end
 
       def stylesheet(name)
-        settings.compass_prefix / name
+        settings.compass_prefix / "#{name}.css"
       end
     end
 
