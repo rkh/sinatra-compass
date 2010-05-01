@@ -12,7 +12,7 @@ SPEC = Gem::Specification.new do |s|
   s.add_development_dependency "sinatra-test-helper", s.version
 
   # External dependencies
-  s.add_dependency "sinatra", ">= 0.9.4"
+  s.add_dependency "sinatra", ">= 1.0"
   s.add_dependency "compass", ">= 0.8.17"
   s.add_development_dependency "rspec", ">= 1.3.0"
 
