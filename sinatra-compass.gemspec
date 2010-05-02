@@ -2,14 +2,14 @@ SPEC = Gem::Specification.new do |s|
 
   # Get the facts.
   s.name             = "sinatra-compass"
-  s.version          = "0.4.0.b"
+  s.version          = "0.4.0"
   s.description      = "Better Compass integration for Sinatra (part of BigBand)."
 
   # BigBand depedencies
-  s.add_dependency "monkey-lib", "~> 0.4.0"
-  s.add_dependency "sinatra-sugar", "~> 0.4.0"
-  s.add_dependency "haml-more", "~> 0.4.0.c"
-  s.add_development_dependency "sinatra-test-helper", s.version
+  s.add_dependency "monkey-lib", "~> #{s.version}"
+  s.add_dependency "sinatra-sugar", "~> #{s.version}"
+  s.add_dependency "haml-more", "~> #{s.version}"
+  s.add_development_dependency "sinatra-test-helper", "~> #{s.version}"
 
   # External dependencies
   s.add_dependency "sinatra", "~> 1.0"
