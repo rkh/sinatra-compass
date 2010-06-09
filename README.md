@@ -13,7 +13,7 @@ Check it out if you are looking for other fancy Sinatra extensions.
 Installation
 ------------
 
-    gem install sinatra-compass --prerelease
+    gem install sinatra-compass
 
 Usage
 -----
