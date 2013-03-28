@@ -7,7 +7,6 @@ SPEC = Gem::Specification.new do |s|
 
   # BigBand depedencies
   s.add_dependency "monkey-lib", "~> #{s.version}"
-  s.add_dependency "sinatra-sugar", "~> #{s.version}"
   s.add_dependency "sinatra-advanced-routes", "~> #{s.version}"
   s.add_dependency "haml-more", "~> #{s.version}"
   s.add_development_dependency "sinatra-test-helper", "~> #{s.version}"
