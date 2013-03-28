@@ -1,6 +1,5 @@
 require "compass"
 require "sinatra/base"
-require "sinatra/sugar"
 require "sinatra/advanced_routes"
 
 module Sinatra
@@ -37,9 +36,10 @@ module Sinatra
       klass.register AdvancedRoutes
       klass.extend ClassMethods
       klass.send :include, InstanceMethods
-      klass.set :compass,
-      :project_path => klass.root_path, :output_style => (klass.development? ? :expanded : :compressed),
-      :sass_dir => klass.views / "stylesheets", :line_comments => klass.development?
+      klass.set :compass, :projet_path => File.expand_path(klass.root) if klass.root
+      klass.set :compass, :sass_dir => klass.views / "stylesheets" if klass.views
+      klass.set :compass, :output_style => (klass.development? ? :expanded : :compressed)
+      klass.set :compass, :line_comments => klass.development?
       set_app_file(klass) if klass.app_file?
     end
 
