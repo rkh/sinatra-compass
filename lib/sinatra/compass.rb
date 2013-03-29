@@ -26,7 +26,7 @@ module Sinatra
         
         if File.exist?(settings.views / "#{file}.scss")
           scss file.to_sym, options
-        if File.exist?(settings.views / "#{file}.sass")
+        elsif File.exist?(settings.views / "#{file}.sass")
           sass file.to_sym, options
         else
           pass
