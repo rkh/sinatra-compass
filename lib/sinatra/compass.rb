@@ -24,6 +24,8 @@ module Sinatra
       def compass(file, options = {})
         options.merge! ::Compass.sass_engine_options
         
+        if File.exist?(settings.views / "#{file}.scss")
+          scss file.to_sym, options
         if File.exist?(settings.views / "#{file}.sass")
           sass file.to_sym, options
         else
