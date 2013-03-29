@@ -11,7 +11,7 @@ module Sinatra
         path.sub! /^\//, ''
         block ||= Proc.new do |file|
           content_type 'text/css', :charset => 'utf-8'
-          compass :"#{path}/#{params[:name]}"
+          compass "#{path}/#{params[:name]}"
         end
         set :compass, :sass_dir => views / path unless compass[:sass_dir] && compass[:sass_dir].directory?
         @compass_prefix = "/#{path}"
@@ -23,7 +23,12 @@ module Sinatra
     module InstanceMethods
       def compass(file, options = {})
         options.merge! ::Compass.sass_engine_options
-        sass file, options
+        
+        if File.exist?(settings.views / "#{file}.sass")
+          sass file.to_sym, options
+        else
+          pass
+        end
       end
 
       def stylesheet(name)
